@@ -1,0 +1,33 @@
+title Part 0 Exercise 0.4
+browser->server: HTTP GET https://fullstack-exampleapp.herkuapp.com/notes
+server->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server->browser: main.js
+
+note over browser:
+browser starts executing the js-code
+that requests the JSON data from the server
+end note
+
+browser->server: HTTP GET https://fullstack-example.app.herokuapp.com/data.json
+server->browser:[{content: "HTML is easy", date: "2019-05-23T17:30:31.098Z"},…]
+
+note over browser:
+browser executes the event handler that 
+renders the notes to display
+end note
+
+note over browser:
+user inputs new note into text field
+then hits submit button
+end note
+
+browser->server: POST https://fullstack-exampleapp.herokuapp.com/new_note
+server->browser: URL Redirect HTTP status code 302
+
+note over browser:
+The browser then reloads the page 
+and then three more HTTP requests
+are done (for main.css,main.js,data.json)

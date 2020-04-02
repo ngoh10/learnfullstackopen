@@ -1,0 +1,43 @@
+title Part 0 Exercise 0.6
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+server->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
+server->browser: spa.js
+
+note over browser:
+browser starts to execute JS-code
+that requests JSON data from server
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server->browser: data.json
+
+note over browser:
+Browser executes event handler
+that renders the notes to display
+end note  
+
+note over browser:
+User inputs new note in text box
+then clicks on submit button
+end note
+
+browser->server: POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+note over browser:
+-The POST request contains the new note
+as JSON-data which contains both the content
+of the note and the timestamp
+-The content-type header tells the server
+that the data included is in the JSON format
+-This allows the server to know what to do
+with the data
+end note
+
+note over server
+Server responds with a 201 created statuscode
+This stats that the request has been fulfilled
+end note
+
+server->browser: 201 created statuscode
