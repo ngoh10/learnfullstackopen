@@ -18,6 +18,11 @@ const App = () => {
       {
         name: "State of a component",
         exercises: 14
+      },
+      {
+        name:
+          "YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEt",
+        exercises: 69
       }
     ]
   };
@@ -27,6 +32,9 @@ const App = () => {
     <div>
       <Header name={course.name} />
       <Content parts={course.parts} />
+      <br></br>
+      <br></br>
+      <br></br>
       <br></br>
       <Total exercises={exercises} />
     </div>
